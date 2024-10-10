@@ -13,6 +13,11 @@ export default async function Home() {
     // Learn more about 'server' actions here: https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations
 
     const session = await stripe.checkout.sessions.create({
+      customer: "cus_R0IwT1mwqE05UR",
+      saved_payment_method_options: {
+        payment_method_save: "enabled",
+      },
+      allow_promotion_codes: true,
       payment_method_types: ["card"],
       line_items: [
         {
